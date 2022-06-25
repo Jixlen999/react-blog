@@ -1,14 +1,21 @@
+import { useContext } from "react";
 import { Route, Routes } from "react-router-dom";
-import PostIdPage from "../pages/PostIdPage";
-import About from "../pages/About";
-import Error from "../pages/Error";
+import { AuthContext } from "../context";
+import Login from "../pages/Login";
 import Posts from "../pages/Posts";
-import { routes } from "../router/routes";
+import { privateRoutes, publicRoutes } from "../router/routes";
 
 const AppRouter = () => {
+	const { isAuth, setIsAuth } = useContext(AuthContext);
+	return isAuth ? privateRoute() : publicRoute();
+};
+
+export default AppRouter;
+
+function privateRoute() {
 	return (
 		<Routes>
-			{routes.map((route) => (
+			{privateRoutes.map((route) => (
 				<Route
 					path={route.path}
 					element={route.element}
@@ -19,6 +26,20 @@ const AppRouter = () => {
 			<Route path="*" element={<Posts />} />
 		</Routes>
 	);
-};
+}
 
-export default AppRouter;
+function publicRoute() {
+	return (
+		<Routes>
+			{publicRoutes.map((route) => (
+				<Route
+					path={route.path}
+					element={route.element}
+					exact={route.exact}
+					key={new Date()}
+				/>
+			))}
+			<Route path="*" element={<Login />} />
+		</Routes>
+	);
+}
