@@ -2,10 +2,10 @@
 
 ## Link: https://jixlen999.github.io/react-studies-project/
 
-Here you can see React app that I've done during studying.
-###Note: Login page is not connected to any database so you don't need to enter any data, just click "Enter" to continue.
+Here you can see React app that I've done during studying. Through development were used API, axios, react routing, some react hooks (useState, useEffect, useRef), were created personal hooks.
+### Note: Login page is not connected to any database so you don't need to enter any data, just click "Enter" to continue.
 
-####Some screenshots:
+#### Some screenshots:
 
 ![screnshot](./screenshots/1.png)
 ![screnshot](./screenshots/2.png)
