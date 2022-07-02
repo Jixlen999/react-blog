@@ -1,72 +1,102 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
-#root {
-    display: flex;
-   flex-direction: column;
-   align-items: center;
+body {
+	background-color: #f6f6f6;
+	color: #232323;
+	font-size: 18px;
+	overflow-x: hidden;
 }
+
+input {
+	background-color: #fff;
+	border-radius: 5px;
+}
+
+/* #root {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+} */
 
 .App {
-    width: 800px;
+	padding: 30px;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	/* gap: 5vw; */
+}
+
+.sidebar {
+	width: 20vw;
+	height: 30vh;
+	border-radius: 10px;
+	z-index: 100;
+}
+
+.posts {
+	width: 70vw;
 }
 
 .post {
-    display: flex;
-    padding: 15px;
-    border: 2px solid teal;
-    margin-top: 15px;
-    justify-content: space-between;
-    align-items: center;
+	display: flex;
+	padding: 15px;
+	border: 2px solid #5f5f5f;
+	border-radius: 5px;
+	margin-top: 15px;
+	justify-content: space-between;
+	align-items: center;
 }
 
 .post__btns {
-    display: flex;
+	display: flex;
 }
 
 .post-enter {
-    transform: translateX(-350px);
+	transform: translateX(-350px);
 }
 .post-enter-active {
-    transform: translateX(0px);
-    transition: all 500ms ease-in;
+	transform: translateX(0px);
+	transition: all 500ms ease-in;
 }
 .post-exit {
-    opacity: 1;
+	opacity: 1;
 }
 .post-exit-active {
-    transform: translateX(-350px);
-    transition: all 500ms ease-in;
+	transform: translateX(-350px);
+	transition: all 500ms ease-in;
 }
 
-.page__wrapper {
-    margin-top: 30px;
-    display: flex;
+/* .page__wrapper {
+	margin-top: 30px;
+	display: flex;
 }
 
 .page {
-    padding: 10px;
-    border: 1px solid teal;
-    cursor: pointer;
+	padding: 10px;
+	cursor: pointer;
 }
 
 .page__current {
-    border: 2px solid orange;
-    font-weight: bold;
-}
+	border: 2px solid orange;
+	font-weight: bold;
+} */
 
 .navbar {
-    height: 50px;
-    width: 100vw;
-    display: flex;
-    align-items: center;
-    padding: 0 15px;
-    background: lightslategray;
+	height: 50px;
+	width: 100vw;
+	display: flex;
+	align-items: center;
+	padding: 0 15px;
+	background: #343434;
+	border-bottom: 3px solid #5f5f5f;
+	position: sticky;
+	top: 0;
 }
 
 .navbar__links {
-    margin-left: auto;
+	margin-left: auto;
 }

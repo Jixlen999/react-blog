@@ -1,6 +1,7 @@
-.myInput {
+.mySelect {
 	width: 100%;
 	padding: 5px 15px;
 	margin: 5px 0;
+	border-radius: 5px;
 	border: 1px solid #b9adad;
 }

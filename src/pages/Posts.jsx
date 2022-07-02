@@ -42,9 +42,9 @@ function Posts() {
 		setPosts(posts.filter((p) => p.id !== post.id));
 	};
 
-	const changePage = (page) => {
-		setPage(page);
-	};
+	// const changePage = (page) => {
+	// 	setPage(page);
+	// };
 
 	useEffect(() => {
 		fetchPosts();
@@ -52,47 +52,50 @@ function Posts() {
 
 	return (
 		<div className="App">
-			<MyButton style={{ marginTop: "30px" }} onClick={() => setModal(true)}>
-				Создать пост
-			</MyButton>
-			<MyModal visible={modal} setVisible={setModal}>
-				<PostForm create={createPost} />
-			</MyModal>
-			<hr style={{ margin: "15px 0" }} />
-			<PostFilter filter={filter} setFilter={setFilter} />
-			<MySelect
-				value={limit}
-				onChange={(value) => setLimit(value)}
-				defaultValue="Количество элементов на странице"
-				options={[
-					{ value: 5, name: "5" },
-					{ value: 10, name: "10" },
-					{ value: 25, name: "25" },
-					{ value: -1, name: "Показать всё" },
-				]}
-			/>
-			{postError && <h1>Произошла ошибка: {postError}</h1>}
-			<PostList
-				remove={removePost}
-				posts={sortedAndSearchedPosts}
-				title={"Посты про языки"}
-			/>
-			<div
-				ref={lastElement}
-				style={{ height: "20px", background: "red" }}
-			></div>
-			{isPostsLoading && (
-				<div
-					style={{
-						display: "flex",
-						justifyContent: "center",
-						marginTop: "50px",
-					}}
+			<div className="sidebar">
+				<MyModal visible={modal} setVisible={setModal}>
+					<PostForm create={createPost} />
+				</MyModal>
+				<PostFilter filter={filter} setFilter={setFilter} />
+				<MySelect
+					value={limit}
+					onChange={(value) => setLimit(value)}
+					defaultValue="Amout of posts per page:"
+					options={[
+						{ value: 5, name: "5" },
+						{ value: 10, name: "10" },
+						{ value: 25, name: "25" },
+						{ value: -1, name: "Show all" },
+					]}
+				/>
+				<MyButton
+					style={{ marginTop: "20px", display: "block" }}
+					onClick={() => setModal(true)}
 				>
-					<Loader />
-				</div>
-			)}
-			<Pagination totalPages={totalPages} page={page} changePage={changePage} />
+					Create new post
+				</MyButton>
+			</div>
+			<div className="posts">
+				{postError && <h1>Error: {postError}</h1>}
+				<PostList
+					remove={removePost}
+					posts={sortedAndSearchedPosts}
+					title={"Posts"}
+				/>
+				<div ref={lastElement} style={{ height: "20px" }}></div>
+				{isPostsLoading && (
+					<div
+						style={{
+							display: "flex",
+							justifyContent: "center",
+							marginTop: "50px",
+						}}
+					>
+						<Loader />
+					</div>
+				)}
+				{/* <Pagination totalPages={totalPages} page={page} changePage={changePage} /> */}
+			</div>
 		</div>
 	);
 }

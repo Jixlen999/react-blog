@@ -13,12 +13,14 @@ const Login = () => {
 	};
 
 	return (
-		<div>
-			<h1>Страница для логина</h1>
+		<div style={{ width: "30%", margin: "0 auto", marginTop: "5%" }}>
+			<h1 style={{ textAlign: "center" }}>Log in </h1>
 			<form onSubmit={login}>
-				<MyInput type="text" placeholder="Введите логин" />
-				<MyInput type="password" placeholder="Введите пароль" />
-				<MyButton>Войти</MyButton>
+				<MyInput type="text" placeholder="Nickname" />
+				<MyInput type="password" placeholder="Password" />
+				<MyButton style={{ margin: "0 auto", display: "block" }}>
+					Enter
+				</MyButton>
 			</form>
 		</div>
 	);
