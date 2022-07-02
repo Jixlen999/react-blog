@@ -1,7 +1,7 @@
 {
 	"name": "react-web-page",
 	"version": "0.1.0",
-	"homepage": "http://jixlen999.github.io/react-studies-project",
+	"homepage": "http://jixlen999.github.io/react-blog",
 	"private": true,
 	"dependencies": {
 		"@testing-library/jest-dom": "^5.16.4",
